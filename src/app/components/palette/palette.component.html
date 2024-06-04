@@ -1,0 +1,22 @@
+<div class="flex flex-row md:flex-col">
+    
+    <div class="w-[70vw] sm:w-[80vw] h-[80vh] flex flex-col md:flex-row rounded-md overflow-hidden m-3">
+        @for (item of colorPalette; track $index) {
+            <!-- <div class="flex justify-center items-center size-full" [style.background-color]="item"></div> -->
+            <input type="color" name="" id="" class="flex justify-center items-center size-full hover:opacity-80 transition" [ngModel]="item" (contextmenu)="onRightClick($event, item)">
+        }
+        <button (click)="addColor()" class="bg-gray-50 flex justify-center items-center size-full hover:bg-gray-200 transition">
+            Add
+        </button>
+    </div> 
+    <div class="md:w-[80vw] h-[80vh] md:h-[2vh] flex flex-col md:flex-row rounded-md overflow-hidden my-3">
+        @for (item of colorPalette; track $index) {
+            <span class="flex justify-center items-center size-full hover:opacity-80 transition" (click)="copyToClipboard(item)">
+                {{item}}
+            </span>
+        }
+        <button  (click)="generatePalette()" class="flex justify-center items-center size-full">New palette
+        </button>
+    </div>
+</div>
+<div id="snackbar">Copied to clipboard</div>
