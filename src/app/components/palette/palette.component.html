@@ -3,16 +3,16 @@
     <div class="w-[70vw] sm:w-[80vw] h-[80vh] flex flex-col md:flex-row rounded-md overflow-hidden m-3">
         @for (item of colorPalette; track $index) {
             <!-- <div class="flex justify-center items-center size-full" [style.background-color]="item"></div> -->
-            <input type="color" name="" id="" class="flex justify-center items-center size-full hover:opacity-80 transition" [ngModel]="item" (contextmenu)="onRightClick($event, item)">
+            <input type="color" name="" id="" class="flex justify-center items-center size-full hover:opacity-80 transition" [(ngModel)]="item.color" (contextmenu)="onRightClick($event, item.color)">
         }
-        <button (click)="addColor()" class="bg-gray-50 flex justify-center items-center size-full hover:bg-gray-200 transition">
+        <button [disabled]="colorPalette.length > 9" (click)="addColor()" class="bg-gray-50 flex justify-center items-center size-full hover:bg-gray-200 transition disabled:cursor-not-allowed">
             Add
         </button>
     </div> 
     <div class="md:w-[80vw] h-[80vh] md:h-[2vh] flex flex-col md:flex-row rounded-md overflow-hidden my-3">
         @for (item of colorPalette; track $index) {
-            <span class="flex justify-center items-center size-full hover:opacity-80 transition" (click)="copyToClipboard(item)">
-                {{item}}
+            <span class="flex justify-center items-center size-full hover:opacity-80 transition" (click)="copyToClipboard(item.color)">
+                {{item.color.toUpperCase()}}
             </span>
         }
         <button  (click)="generatePalette()" class="flex justify-center items-center size-full">New palette

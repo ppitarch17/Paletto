@@ -1,1 +1,24 @@
-<p>gallery works!</p>
+
+<div class="flex flex-wrap m-5 container mx-auto">
+    @for (palette of palettes; track $index) {
+        <div>
+            <h3 class="mt-6 mb-1 mx-3">{{palette.name}}</h3>
+            <div class="flex flex-row md:flex-col">
+                <div class="w-80 md:w-96 h-64 flex flex-col md:flex-row rounded-md overflow-hidden m-3 hover:opacity-70 cursor-pointer transition" (click)="editPalette(palette)">
+                    @for (item of palette.colors; track $index) {
+                        <div class="flex justify-center items-center size-full transition" [style]="{'background-color': item.color}">
+                        </div>
+                    }
+                </div>
+                <div class="md:w-96 h-64 md:h-[2vh] flex flex-col md:flex-row rounded-md overflow-hidden m-3">
+                    @for (item of palette.colors; track $index) {
+                        <span class="flex md:justify-center items-center text-sm size-full text-center hover:opacity-80 transition hover:bg-gray-100 cursor-copy" (click)="copyToClipboard(item.color)">
+                            {{item.color}}
+                        </span>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<div id="snackbar">Copied to clipboard</div>
