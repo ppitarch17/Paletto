@@ -1,6 +1,29 @@
-# PaletteGenerator
+# Paletto!
+
+Welcome to the Paletto! This is a web application built using Angular and styled with Tailwind CSS. It allows users to generate beautiful color palettes for their projects.
+
+## Features
+
+Generate Random Palettes: Create a new, random color palette with a single click.
+
+Responsive Design: Enjoy a seamless experience on both desktop and mobile devices.
+
+Edit Pre-made Palettes: Quickly customize hand-made palettes in the gallery.
+
+## Demo
+
+Check out the live demo of the Palette Generator [here](https://paletto-one.vercel.app).
+
+## Development
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.2.
+
+## Technologies Used
+
+Angular: Frontend framework for building the web application.
+
+Tailwind CSS: Utility-first CSS framework for styling.
+
 
 ## Development server
 
